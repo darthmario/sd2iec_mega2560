@@ -1295,9 +1295,9 @@ static inline void leds_init(void)
 	// Note: Depending on the chip and register these lines can compile
 	//       to one instruction each on AVR. For two bits this is one
 	//       instruction shorter than "DDRB |= _BV(PB6) | _BV(PB7);"
-	DDRB or_eq _BV(PB7);
+	DDRA |= _BV(PA1);
 	// OPTIONAL: Implement a second led (RED one!).
-	DDRH |= _BV(PH3);
+	DDRA |= _BV(PA2);
 }
 
 // --- "BUSY" led, recommended color: green (usage similiar to 1541 LED) ---
@@ -1306,25 +1306,25 @@ static inline __attribute__((always_inline)) void set_busy_led(uint8_t state)
 	// OPTIONAL: Attach and implement a green led for BUSY.
 //	VAR_UNUSED(state);
 	if (state)
-		PORTH and_eq ~_BV(PH3);
+		PORTA |= _BV(PA1);
 	else
-		PORTH or_eq _BV(PH3);
+		PORTA &= ~_BV(PA1);
 }
 
 // --- "DIRTY" led, recommended color: red (errors, unwritten data in memory) ---
 static inline __attribute__((always_inline)) void set_dirty_led(uint8_t state)
 {
 	if(state)
-		PORTB and_eq compl _BV(PB7);
+		PORTA |= _BV(PA2);
 	else
-		PORTB or_eq _BV(PB7);
+		PORTA &= ~_BV(PA2);
 }
 
 // Toggle function used for error blinking
 static inline void toggle_dirty_led(void)
 {
 	// Sufficiently new AVR cores have a toggle function
-	PINB or_eq _BV(PB7);
+	PINA |= _BV(PA2);
 }
 
 
@@ -1422,8 +1422,8 @@ static inline void board_init(void)
 
 	// OPTIONAL: Attach/Implement a power led.
 	// turn on power LED
-//  DDRG  or_eq _BV(PG1);
-//  PORTG or_eq _BV(PG1);
+	DDRA  |= _BV(PA3);
+	PORTA |= _BV(PA3);
 }
 
 #else
