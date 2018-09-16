@@ -1274,15 +1274,14 @@ static inline uint8_t device_hw_address(void)
 {
 	// OPTIONAL: Attach and implement a 2-button DIP-switch.
 	// If not we return always a hard coded number.
-	return 8;
-	// return 8 + not(PIND bitand _BV(PD7)) + 2 * not(PIND bitand _BV(PD5));
+	return 8 + not(PINL bitand _BV(PL5)) + 2 * not(PINL bitand _BV(PL7));
 }
 
 /* Configure hardware device address pins */
 static inline void device_hw_address_init(void)
 {
-	// DDRD  and_eq compl (_BV(PD7) bitor _BV(PD5));
-	// PORTD or_eq   _BV(PD7) bitor _BV(PD5);
+	DDRL  and_eq compl (_BV(PL5) bitor _BV(PL7));
+	PORTL or_eq   _BV(PL5) bitor _BV(PL7);
 }
 
 
