@@ -947,3 +947,48 @@ ATN goes to PD3 (marked 18).
 GND goes to any GND (you can find multiple grounds on the board, there's one located next to pin #53).
 The RESET pin can be skipped, sd2iec doesn't need this for full operation.
 
+
+Pins required
+
+
+IEC cable
+
+SRQ goes to PD0 (marked 21) DEFAULT_SRQIN_PIN 6
+CLOCK goes to PD1 (marked 20) DEFAULT_CLOCK_PIN 4
+DATA goes to PD2 (marked 19) DEFAULT_DATA_PIN 3
+ATN goes to PD3 (marked 18). DEFAULT_ATN_PIN 5
+GND goes to any GND (you can find multiple grounds on the board, there's one located next to pin #53).
+The RESET pin can be skipped, sd2iec doesn't need this for full operation.
+
+
+SDCard (for gikfun EK1442 (6 pins))
+
+
+
+
+
+Gikfun info
+
+The module (MicroSD Card Adapter) is a Micro SD card reader module, and the SPI interface via
+the file system driver, microcontroller system to complete the MicroSD card read and write
+files. Arduino users can directly use the Arduino IDE comes with an SD card to complete the
+library card initialization and read-write
+Module features are as follows:
+1 Support Micro SD Card, Micro SDHC card (high-speed card)
+2 the level conversion circuit board that can interface level is 5V or 3.3V
+3 power supply is 4.5V ~ 5.5V, 3.3V voltage regulator circuit board
+4. Communication interface is a standard SPI interface
+5. 4 M2 screw positioning holes for easy installation
+Control Interface: A total of six pins (GND, VCC, MISO, MOSI, SCK, CS), GND to ground, VCC is
+the power supply, MISO, MOSI, SCK is the SPI bus, CS is the chip select signal pin;
+3.3V regulator circuit: LDO regulator output 3.3V as level converter chip, Micro SD card
+supply;
+Level conversion circuit: Micro SD card into the direction of signals into 3.3V, MicroSD card
+toward the direction of the control interface MISO signal is also converted to 3.3V, general
+AVR microcontroller system can read the signal;
+Micro SD card connector: yes since the bomb deck for easy card insertion and removal.
+Positioning holes: 4 M2 screws positioning hole diameter of 2.2mm, the module is easy to
+install positioning, to achieve inter-module combination;
+Shipping Included:
+•1PCS*Micor SD TF Card Shield Expansion Board for Arduino DIY
+
