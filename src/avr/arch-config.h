@@ -1390,15 +1390,15 @@ static inline void iec_clock_int_setup(void)
 static inline rawbutton_t buttons_read(void)
 {
 	// OPTIONAL: Attach/Implement buttons on some GPIO.
-	return 0;
-//	return PING bitand (BUTTON_NEXT bitor BUTTON_PREV);
+	//return 0;
+	return PING bitand (BUTTON_NEXT bitor BUTTON_PREV);
 }
 
 static inline void buttons_init(void)
 {
 	// OPTIONAL: Attach/Implement buttons on some GPIO.
-//	DDRG  &= (uint8_t)~(BUTTON_NEXT | BUTTON_PREV);
-//	PORTG |= BUTTON_NEXT | BUTTON_PREV;
+	DDRG  &= (uint8_t)~(BUTTON_NEXT | BUTTON_PREV);
+	PORTG |= BUTTON_NEXT | BUTTON_PREV;
 }
 
 // Software I2C lines for the RTC and display
